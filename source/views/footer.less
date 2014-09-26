@@ -1,0 +1,44 @@
+.page-footer {
+  z-index: @z-index-footer;
+  padding: 1rem 0 1.5rem 0;
+  font-size: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .125rem;
+  color: @red;
+  background: @light-grey;
+  user-select: none;
+  cursor: default;
+  a {
+    color: @white;
+    flex-direction: row;
+  }
+  object {
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    height: 25px;
+    width: 25px;
+    margin: 0 auto;
+  }
+}
+
+.oa100-totem {
+  path {
+    fill: @red;
+  } 
+}
+
+@media screen and (max-width:550px) {
+  .page-footer {
+    padding: 1rem;
+    .box-sizing();
+    span {
+      display: block;
+      margin: 0 auto;
+    }
+    object {
+     top: 3px;
+    }
+  }
+}

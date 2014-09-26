@@ -1,0 +1,23 @@
+{
+  "name": "stylekit",
+  "version": "1.0.0",
+  "homepage": "https://github.com/oa-bsa/stylekit",
+  "authors": [
+    "Patrick Burtchaell <patrick@pburtchaell.com>"
+  ],
+  "description": "An advanced, responsive front-end CSS framework. Create prototypes and production code for Order of the Arrow web sites and web applicationss that work on any kind of device.",
+  "main": "./dest/styles.css",
+  "keywords": [
+    "front-end",
+    "css",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

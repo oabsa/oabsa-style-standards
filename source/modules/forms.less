@@ -1,0 +1,167 @@
+@form-max-width: 300px;
+@form-padding: 0 .75rem;
+@form-margin: .25rem 0;
+@form-border-width: 2px;
+@form-border-color: @grey;
+@form-border-color-inactive: fadeOut(@form-border-color,100%);
+@form-border-color-active: fadeOut(@form-border-color,75%);
+
+/*
+ * Base styles all form elements (input and select) will need, e.g., transitions
+ * box-sizing, resets for default browser appearances, etc.
+ */
+select,
+input {
+  display: block;
+  .transition();
+}
+
+/*
+ * Typography styles shared across all form elements.
+ */
+select,
+input,
+label {
+  font: normal 0.75rem @type-primary;
+  color: @grey;
+}
+label {
+  &:not(.checkbox) {
+    display: block;
+    position: relative;
+    margin: 0 .25rem;
+    top: 1px;
+    color: @grey;
+    font: normal 0.5rem @type-primary;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+    user-select: none;
+
+    span {
+      color: @red;
+      &:after {
+        content: 'Required';
+        opacity: 0;
+        .transition();
+      }
+    }
+    &:hover span:after {
+      opacity: 1;
+    }
+  }
+}
+
+/*
+ * Base styles for form elements that have text input, e.g., all those
+ * except checkboxes and radio buttons; we have something special in store
+ * for those elements.
+ */
+select,
+input[type='text'],
+input[type='email'] {
+  width: 100%;
+  max-width: @form-max-width;
+  min-height: 2rem;
+  margin: @form-margin;
+  border: @form-border-width solid;
+  border-radius: 0;
+  background: none;
+  padding: @form-padding;
+  .appearance();
+  .box-sizing();
+  &:focus,
+  &:hover {
+    outline: 0;
+  }
+}
+
+input[name='pass_number'] {
+  &:valid {
+    @color: #85dd6d;
+    background: fadeOut(@color,25%);
+    color: @grey;
+  }
+  &:invalid { color: @red }
+}
+
+/*
+ *
+ */
+label.checkbox {
+  display: flex;
+  line-height: 2;
+}
+
+input[type='checkbox'] {
+  display: none;
+  ~ span {
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    margin: .25rem;
+    background: @grey;
+    .transition();
+  }
+  &:checked ~ span {
+    background: #85dd6d url('../img/site/checkmark.svg') no-repeat center center;
+  }
+}
+
+/*
+ * Enews signup form styles
+ */
+form[data-type='enews'] {
+
+  @color: @grey;
+  display: block;
+
+  input {
+    width: 100%;
+    max-width: 500px;
+    margin: .25rem auto;
+    border: none; 
+    background: @light-grey;
+    &:focus {
+      border: none;
+    }
+  }
+  
+  input[type='email'] {
+    color: @color;
+  }
+
+  button {
+    .btn-small();
+    border: none;
+    background: @grey;
+    color: @light-grey;
+  }
+
+  input[type='submit'] {
+    margin-top: .25rem;
+  }
+
+}
+
+/**
+ * @mixin .placeholder
+ *
+ * Style the text color of the placeholder attribute's text.
+ */
+.placeholder(@i: fadeOut(@grey,40%)) {
+  ::-webkit-input-placeholder { color: @i; }
+  ::-moz-input-placeholder { color: @i; }
+  ::-ms-input-placeholder { color: @i; }
+}
+.placeholder();
+
+select {
+  padding: 0 @form-padding;
+  border-radius: 0;
+}
+
+button#registration_form_show {
+  max-width: 100px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

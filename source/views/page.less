@@ -1,0 +1,260 @@
+/**
+ * .wrapper && .page-content
+ * Use as the top container for HTML main or section elements
+ * Adds margins, padding, and max-width to element.
+ *
+ * If a page is just a <main> element with a small amount of content,
+ * use the .page-content class. If a page will have many sections, and
+ * you might want some of those sections to be full-width and others not
+ * to be, use the .wrapper class.
+ *
+ * For example:
+ * <main class=page-content>
+ *  <p></p>
+ * </main>
+ *
+ * Or:
+ * <main>
+ *  <section class=wrapper></section>
+ *  <section class="wrapper wrapper-extended"></section>
+ * </main>
+ *
+ * The first example will limit all content within the main element to have
+ * a max-width; in the second example, only the sections with the .wrapper
+ * class will have a max-width.
+ */
+.page-content,
+.wrapper {
+  max-width: 550px;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  
+  a { border-bottom: .125rem solid }
+  
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after { clear: both }
+  
+  /* Remove the top margin from headings
+   * */
+  > h2:nth-of-type(1),
+  > h3:nth-of-type(1) {
+    margin-top: 0; 
+  }
+}
+@media only screen and (max-width: 550px) {
+  .page-content,
+  .wrapper {
+    .box-sizing();
+  }
+}
+/**
+ * Additional .wrapper-* classes
+ * Use to further style the wrapper for certian use cases
+ *
+ * .wrapper-extended: 100% width, but still has padding and margins
+ * .wrapper-padding: adds extra padding to top and/or bottom
+ *    &.top: add padding to top of .wrapper
+ *    &.bottom: add padding to bottom of .wrapper
+ */
+.wrapper-extended { max-width: 100% }
+.wrapper-padding {
+  &.top { padding-top: 3rem }
+  &.bottom { padding-bottom: 3rem }
+}
+
+/**
+ * [data-style] HTML5 attribute
+ * Use to customize elements without using classes.
+ *
+ * Usage in HTML: data-style= primary || secondary || tertiary
+ *
+ * 'no value': Adds padding to element
+ * 'primary': White background, grey text
+ * 'secondary': Red background, white text
+ * 'tertiary': Light grey background, red text
+ */
+[data-style] {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+[data-style='primary'] {
+  background: @white;
+  color: @grey;
+}
+[data-style='secondary'] {
+  background: @red;
+  color: @white;
+  a { color: @white }
+}
+[data-style='tertiary'] {
+  background: @light-grey;
+  color: @red;
+}
+
+/**
+ * .link-section
+ * On some pages there are links one 
+ * can click on that will link the page to a
+ * certian section of content. This is common 
+ * for pages with a lot of content, such as docs 
+ * or guides.
+ * 
+ * The icon is placed left of the element using :before
+ * and will appear on :hover.
+ */
+.link-section {
+  font-size: 1rem;
+  border: none !important;
+  &:before { 
+    content: '';
+    height: 1rem;
+    width: 1rem;
+    background: url('http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Link-icon.png') center center / cover no-repeat;
+    display: none;
+    position: absolute;
+    opacity: .75;
+    transform: translateX(-25px);
+  }
+  &:hover {
+    opacity: 1;
+    &:before {
+      display: inline-block;
+    }
+  }
+}
+
+.sct-separator {  
+  fill: @red;
+  margin-bottom: 2rem;
+}
+
+.sct-img {
+  min-height: 50vh;
+  width: 100%;
+  span {
+    height: 50vh;
+display: block;
+width: 100%;
+background: center center / cover fixed;
+display: flex;
+flex: 1 auto;
+padding: 10vh;
+.box-sizing();
+  } 
+}
+
+.sct-content {
+align-self: center;
+/* text-align: center; */
+margin: 0 auto;
+h2 { color: @white }
+}
+
+#conference-details {
+  color: @red;
+}
+
+.page-nav-social { 
+  z-index: 100; 
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  flex: 1 auto;
+height: 30vh;
+margin: 0 auto;
+ a {
+  margin-top: 10vh;
+  flex: 1 auto;
+  text-align: center;
+  align-self: center;
+  svg {
+    fill: @white;
+  }
+ }
+}
+
+
+
+/**
+ * .page.ng-leave || .page.ng-enter
+ * Classes added to any element with the page class.
+ * Provides transitions between pages.
+
+@z-index-leave: 9999;
+@z-index-enter: 8888;
+
+.ng-leave {
+  animation: slideOut 0.25s both ease-in;
+  z-index: @z-index-leave;
+}
+.ng-enter {
+  animation: slideInRight 0.25s both ease-in;
+  z-index: @z-index-enter;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideInRight {
+  from {
+    opacity: 0;
+    -moz-transform:translateX(100%);
+  }
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInRight {
+  from  {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@-moz-keyframes slideOut {
+  from {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    -moz-transform: translateX(100%);
+  }
+}
+@-webkit-keyframes slideOut {
+  from  {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+} */

@@ -1,0 +1,252 @@
+/**
+ * .page-header
+ * Top container for navigation and site branding.
+ */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: @z-index-header;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  .box-sizing();
+  user-select: none;
+  .transition();
+  
+  &.headroom--pinned { 
+    //border: 1px solid @grey;
+  }
+
+  &.headroom--unpinned, 
+  &.headroom--pinned { 
+    height: 100px;
+    .page-nav-wrapper {
+      background: @white !important;
+      border-bottom: 1px solid @light-grey;
+      //box-shadow: 0 1px 1px rgba(10,10,11,.05); 
+    }
+    .page-nav-item { 
+        color: @grey !important;
+      }
+  }
+  &.headroom--pinned.headroom--top {
+    .page-nav-wrapper { background: none !important; border: none !important; }
+    .page-nav-item { color: @white !important }
+  }
+  
+  &.secondary-nav-inactive {
+    transition-delay: 1s;
+    .page-nav-wrapper, 
+    .page-nav-item {
+      transition-delay: 1s;
+    }
+  }
+
+  &.secondary-nav-active {
+    height: 100px;
+    .page-nav-wrapper {
+      background: @white !important;
+      .page-nav-item { 
+        color: @grey !important;
+      }
+    }
+    .secondary-nav {
+      height: 55px; 
+      transform: none;
+    }
+
+  }
+  
+  &.header-transparent {
+    .page-nav-wrapper {
+      background: none; 
+    }
+    .page-nav-item { 
+      color: @white
+    }
+  }
+}
+
+/**
+ * .page-nav
+ * Conatiner for site navigation links; has a max-width and is
+ * centered vertically in the middle of the page and horizontally
+ * in the middle of the .page-header.
+ */
+.page-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  z-index: 2;
+}
+.page-nav-wrapper {
+  width: 100%;
+  background: @white;
+  z-index: 3;
+  .transition();
+}
+
+/**
+ * .page-nav-item
+ * Using flexbox spec, each navigation item (a element) takes
+ * up one equal space of the .page-nav.
+ */
+.page-nav-item {
+  flex: 1 auto;
+  max-height: 50px;
+  padding: .75rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .125rem;
+  border-top: 2px solid @white;
+  color: @red;
+  cursor: pointer;
+  .box-sizing();
+  &:hover {
+    border-top-color: @red;
+    opacity: 1;
+  }
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  padding: 2rem 1rem 0 1rem;
+  
+  background: @light-grey center bottom / cover no-repeat fixed;
+
+  .box-sizing();
+  h1 {
+    margin: 0 auto;
+    max-width: 600px; 
+  }
+}
+.page-title-large {
+  min-height: 70vh;
+}
+.page-title-full {
+  min-height: 100vh; 
+}
+.page-title-slider {
+  padding: 0; 
+}
+
+.page-title-wrapper {
+  display: flex;
+  flex: 1 auto;
+  flex-direction: column;
+  min-width: 50vw;
+  padding: 1rem;
+  margin: 0 auto;
+  color: @white;
+  h1 {
+    padding: 1rem;
+    line-height: 1;
+  }
+}
+
+.page-branding {
+  width: 100%;
+  max-width: 20rem;
+  display: block;
+  svg {
+    height: 200px;
+    width: 200px;
+  }
+}
+.branding-text {
+  fill: @white;
+}
+
+.secondary-nav {
+  top: 70px;
+  height: 55px;
+  left: 0;
+  z-index: 1;
+  background: @grey;
+  
+  transform: translateY(-100px);
+  
+  
+
+  .transition();
+  transition-delay: .5s;
+
+  .page-nav-item {
+    color: @white;
+    .small();
+    padding: 0;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+            &:hover {
+          opacity: .75;
+          font-weight: 600 !important;
+        }
+  }
+}
+
+.information-nav {
+  max-width: 550px;
+  height: 50px;
+}
+
+.main-title-wrapper {
+position: absolute;
+height: 100vh;
+width: 100vw;
+z-index: 1;
+display: flex;
+flex-direction: column;
+animation: 1s fadeInUp;
+animation-delay: .25s;
+}
+
+.main-title {
+flex: 1 auto;
+height: 70vh;
+align-self: center;
+color: white;
+.details {
+width: 300px;
+display: block;
+margin: 2rem auto;
+text-align: center;
+}
+
+}
+
+.main-title-text {
+  font-size: 2rem;
+  margin: 2rem auto !important;
+}
+
+.main-branding {
+  height: 300px;
+width: 300px;
+margin: 0 auto;
+display: block;
+ svg {
+  height: 300px;
+  fill: @white;
+  width: 300px;
+ } 
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width:550px) {
+  .page-nav {
+    max-width: 350px; 
+  }
+  .page-nav-item {
+    font-size: .75rem;
+  }
+}

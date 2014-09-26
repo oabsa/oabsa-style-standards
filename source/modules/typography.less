@@ -1,0 +1,130 @@
+@import 'fonts';
+
+/* Font-stack:
+ * Use these variables to configure your typefaces.
+ * Use the @font-face variable to set fallback typefaces.
+ */
+@type-primary     : 'Roboto', @font-stack;
+@type-secondary   : 'futura-pt', @font-stack;
+@font-stack       : 'Helvetica Neue', 'Arial', sans-serif;
+
+/* Font-size:
+ * @unit px
+ * The base font-size for the HTML element.
+ * Please also adjust the @small-screen-font-size variable.
+ */
+@font-size: 17px; // do not include the unit
+
+/* Media-query
+ * @unit px || rem
+ * Use this to set at what viewport size all typography will
+ * reset to a smaller size.
+ */
+@small-screen           : 768px;
+@small-screen-font-size : 15; // do not include the unit
+
+/* Colors:
+* @unit RGB
+ */
+@font-color              : rgb(75,75,75);
+@font-color-link         : rgb(0, 169, 198);
+@font-color-link-visited : rgb(0,0,0);
+
+/* Base:
+ * @unit REM
+ * The variable used for all margin and padding declarations.
+ */
+@base: 1rem; // in REM; do not include the unit
+@base-border: 0.125rem;
+@base-border-style: solid;
+@base-h1: 3rem;
+@base-h2: 2rem;
+@base-h3: 1rem;
+@base-h4: 1.25rem;
+@base-h5: 1rem;
+@base-h6: 1rem;
+
+/* Tranisition
+ * For use on links.
+ */
+.transition(@val: all 0.25s ease) {
+  transition: @val;
+}
+
+html {
+  font-feature-settings: 'frac';
+  font-feature-settings: 'swsh' 2; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @type-secondary;
+font-style: normal;
+font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .125rem;
+  margin: 1rem 0 1.5rem 0s;
+  line-height: 1;
+  &.rst {
+    margin-top: 0;
+  }
+}
+
+h1 { font-size: @base-h1; }
+h2 { font-size: @base-h2; }
+h3 { 
+  font-size: @base-h3; 
+  text-align: left;
+  margin-top: 3rem;
+}
+h4 { font-size: @base-h4; }
+h5 { font-size: @base-h5; }
+h6 { font-size: @base-h6; }
+
+a {
+  color: @red;
+  text-decoration: none;
+  will-change: opacity;
+  .transition();
+  &.line { text-decoration: underline; }
+  &.white { color: @white; }
+  &:hover { opacity: .5; }
+}
+
+p {
+  font-size: 1rem;
+}
+
+.small(@value: .75rem) {
+  font-size: @value;
+}
+
+small {
+  .small();
+}
+
+strong,b {
+  font-style: bold;
+  font-weight: 600; 
+}
+
+hr {
+  max-width: 1rem;
+  margin: .5rem auto .75rem auto;
+  border: .125rem solid;
+  color: inherit;
+}
+
+.text-center { text-align: center; }
+
+
+/* small screen properties and values */
+@media screen and (max-width: 768px) {
+  html { font-size: 17px; }
+  p { text-align: left; }
+  h1 { font-size: calc(2.00rem/ 1.4); }
+  h2 { font-size: calc(1.50rem/ 1.25);}
+  h3 { font-size: calc(1.25rem/ 1.2); }
+  h4 { font-size: calc(1.20rem/ 1.2); }
+  h5 { font-size: calc(1.15rem/ 1.2); }
+}

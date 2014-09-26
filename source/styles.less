@@ -1,0 +1,67 @@
+@import 'modules/reset';
+@import 'modules/browser-status';
+@import 'modules/typography';
+@import 'modules/grid';
+@import 'modules/forms';
+@import 'modules/buttons';
+@import 'modules/modal';
+@import 'modules/slider';
+@import 'modules/print' print;
+@import 'views/page-load';
+
+@import 'utils/animations';
+@import 'utils/variables';
+@import 'utils/mixins';
+
+@import 'views/_index';
+
+/**
+ * html element declaration block
+ * Since this layout is using flexbox, the html should have
+ * a min-height/min-width of 100vh/100vw, respectively.
+ * In addition, since we are using REM units, the base font-size
+ * should be styled here, in pixels --along with any other typographic
+ * styles, e.g., color, line-height, etc.
+ */
+html {
+  min-height: 100%;
+  min-width: 100%;
+  font: 17px 'Roboto', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  line-height: 1.8;
+  color: @font-color;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-button { }
+::-webkit-scrollbar-track {
+  background: @light-grey;
+}
+::-webkit-scrollbar-track-piece { }
+::-webkit-scrollbar-thumb {
+  background: @grey;
+}
+::-webkit-scrollbar-corner { }
+::-webkit-scrollbar-resizer { }
+
+/**
+ * body element declaration block
+ */
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -ms-touch-action: none;
+  background: @white;
+  .appearance();
+}
+
+main {
+  flex: 1 auto;
+}

@@ -1,0 +1,111 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.slide {
+  
+  height: 100%;
+  width: 100%;
+  //display: flex;
+  //flex-direction: column;
+  position: absolute;
+  flex: 1 auto;
+
+  
+  span {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: no-repeat center center / cover;
+    opacity: .5;
+  }
+  
+  background: @red;
+}
+
+.slide-container {
+  display: flex;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  color: @white;
+  z-index: 9; 
+}
+
+.slide-content {
+  position: relative;
+  align-self: center;
+  margin: 0 auto;
+  max-width: 500px !important;
+}
+
+.slide-title,
+.slide-description {
+  text-align: center;
+  color: @white;
+}
+
+
+.slider-arrows {
+  display: flex;
+  flex: 1 auto;
+  position: relative;
+  height: auto;
+  width: 100%;
+  align-self: center;
+  margin: 0 auto;
+  z-index: 10; 
+}
+
+.arrow-left {
+  position: relative;
+  flex: 1 auto;
+  align-self: center;
+  left: @base;
+  cursor: pointer;
+}
+
+.arrow-right {
+  position: relative;
+  align-self: center;
+  right: @base;
+  cursor: move;
+}
+
+/**
+ * Translate the arrows left/right when 
+ * user hovers on one.
+ */
+.arrow-left:hover,
+.arrow-left:focus { transform: translateX(-5px) }
+.arrow-right:hover,
+.arrow-right:focus { transform: translateX(5px) }
+
+@media screen and (max-width: 700px) {
+  .slider-arrows {
+    display: none;
+  }
+}
+
+/**
+ * When a slide switches, transition between the two 
+ * with a simple fadeIn, fadeOut transition. 
+ */
+.slide.ng-hide-add,
+.slide.ng-hide-remove {
+  display: block !important;
+  .transition(.5s);
+}
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+  opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
