@@ -13,20 +13,20 @@
   .box-sizing();
   user-select: none;
   .transition();
-  
-  &.headroom--pinned { 
+
+  &.headroom--pinned {
     //border: 1px solid @grey;
   }
 
-  &.headroom--unpinned, 
-  &.headroom--pinned { 
+  &.headroom--unpinned,
+  &.headroom--pinned {
     height: 100px;
     .page-nav-wrapper {
       background: @white !important;
       border-bottom: 1px solid @light-grey;
-      //box-shadow: 0 1px 1px rgba(10,10,11,.05); 
+      //box-shadow: 0 1px 1px rgba(10,10,11,.05);
     }
-    .page-nav-item { 
+    .page-nav-item {
         color: @grey !important;
       }
   }
@@ -34,10 +34,10 @@
     .page-nav-wrapper { background: none !important; border: none !important; }
     .page-nav-item { color: @white !important }
   }
-  
+
   &.secondary-nav-inactive {
     transition-delay: 1s;
-    .page-nav-wrapper, 
+    .page-nav-wrapper,
     .page-nav-item {
       transition-delay: 1s;
     }
@@ -47,22 +47,22 @@
     height: 100px;
     .page-nav-wrapper {
       background: @white !important;
-      .page-nav-item { 
+      .page-nav-item {
         color: @grey !important;
       }
     }
     .secondary-nav {
-      height: 55px; 
+      height: 55px;
       transform: none;
     }
 
   }
-  
+
   &.header-transparent {
     .page-nav-wrapper {
-      background: none; 
+      background: none;
     }
-    .page-nav-item { 
+    .page-nav-item {
       color: @white
     }
   }
@@ -116,23 +116,23 @@
   align-items: center;
   height: 400px;
   padding: 2rem 1rem 0 1rem;
-  
+
   background: @light-grey center bottom / cover no-repeat fixed;
 
   .box-sizing();
   h1 {
     margin: 0 auto;
-    max-width: 600px; 
+    max-width: 600px;
   }
 }
 .page-title-large {
   min-height: 70vh;
 }
 .page-title-full {
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 .page-title-slider {
-  padding: 0; 
+  padding: 0;
 }
 
 .page-title-wrapper {
@@ -168,10 +168,10 @@
   left: 0;
   z-index: 1;
   background: @grey;
-  
+
   transform: translateY(-100px);
-  
-  
+
+
 
   .transition();
   transition-delay: .5s;
@@ -234,7 +234,7 @@ display: block;
   height: 300px;
   fill: @white;
   width: 300px;
- } 
+ }
 }
 
 @keyframes fadeInUp {
@@ -244,7 +244,7 @@ display: block;
 
 @media screen and (max-width:550px) {
   .page-nav {
-    max-width: 350px; 
+    max-width: 350px;
   }
   .page-nav-item {
     font-size: .75rem;

@@ -1,19 +1,11 @@
-@import 'modules/reset';
-@import 'modules/browser-status';
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'modules/normalize';
 @import 'modules/typography';
 @import 'modules/grid';
 @import 'modules/forms';
 @import 'modules/buttons';
-@import 'modules/modal';
-@import 'modules/slider';
 @import 'modules/print' print;
-@import 'views/page-load';
-
-@import 'utils/animations';
-@import 'utils/variables';
-@import 'utils/mixins';
-
-@import 'views/_index';
 
 /**
  * html element declaration block
@@ -31,20 +23,6 @@ html {
   line-height: 1.8;
   color: @font-color;
 }
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-::-webkit-scrollbar-button { }
-::-webkit-scrollbar-track {
-  background: @light-grey;
-}
-::-webkit-scrollbar-track-piece { }
-::-webkit-scrollbar-thumb {
-  background: @grey;
-}
-::-webkit-scrollbar-corner { }
-::-webkit-scrollbar-resizer { }
 
 /**
  * body element declaration block
