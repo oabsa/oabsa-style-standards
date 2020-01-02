@@ -1,18 +1,1 @@
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Compiled stylesheet
-build
-
-# Dependency directories
-node_modules
-bower_components
-
-# Users Environment Variables
-.lock-wscript
+**/.DS_Store
