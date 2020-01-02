@@ -1,5 +1,5 @@
 /*
- * OABSA Styles
+ * * * OABSA Styles * * *
  */
 
 
@@ -16,7 +16,7 @@
     --info: #005596;
     --light: #ddd;
     --dark: #231F20;
-  }
+}
 
 
 /*
@@ -567,6 +567,18 @@ nav.navbar .dropdown-menu {
 .nav-pills .nav-link.active, 
 .nav-pills .show>.nav-link {
     background-color: #E31837;
+}
+
+
+/*
+ * OABSA Custom Styles
+ */
+
+.browser-warning {
+    background-color: #FCD116;
+    font-size: 1.15rem;
+    padding: 2rem;
+    text-align: center;
 }
 
 
