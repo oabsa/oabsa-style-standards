@@ -1,10 +1,3 @@
-# Styles
+# OABSA Theme for Bootstrap 4
 
-CSS library for use on Order of the Arrow projects.
-
-## Documentation
-
-Coming soon.
-
----
-Copyright 2015 Order of the Arrow. Licensed [MIT](LICENSE).
+These files provide a ready-to-use Bootstrap 4 theme that follows the OA's branding guidelines, in order to support consistency across web platforms.
